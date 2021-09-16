@@ -111,8 +111,7 @@ export default function Home() {
               <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
                 6.){" "}
                 <span className="w-5/6 text-gray-200 md:w-2/3">
-                  Schizophrenia is whats called{" "}
-                  <span className="text-green-600">heterogeneous</span> disease
+                  Schizophrenia is whats called<span className="text-green-600">heterogeneous</span> disease
                   which are caused by many different factors including your
                   genes and environment. <span className="flex mt-4 text-xs text-green-600">In other words, this means the you in a different reality where things in life went differently might not have schizophrenia.</span>
                 </span>
