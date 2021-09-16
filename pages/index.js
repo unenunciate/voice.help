@@ -78,7 +78,7 @@ export default function Home({title}) {
                   <span class="text-green-600 block text-xs">
                     Always remember the first two rules and if questioning
                     something they say ask a medical professional, a close
-                    friend, or even the bot on this page, information given to
+                    friend, or even the bot on this page if the information given to
                     you is safe and useful.
                   </span>
                 </span>
