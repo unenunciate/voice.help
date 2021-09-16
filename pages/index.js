@@ -1,13 +1,26 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
-  const [ellipsis, setEllipsis] = useState([]);
+  const [ellipsis, setEllipsis] = useState(["."]);
+  const ellipsisRef = useRef([]);
   const [timer, setTimer] = useState(null);
-  const [reset, setReset] = useState(0);
+
+  const [resetTimer, setResetTimer] = useState(false);
   useEffect(() => {
-  },[reset]);
+    const interval = setInterval(() => {
+      if(ellipsisRef.current.length < 3){
+        ellipsisRef.current = [...ellipsisRef.current, "."];
+        setEllipsis(ellipsisRef.current);
+        
+      }else{
+        ellipsisRef.current = ["."];
+        setEllipsis(ellipsisRef.current);
+      }
+    },1000);
+  return () => clearInterval(interval); 
+  },[resetTimer, timer, ellipsisRef.current]);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 font-mono text-green-600">
       <Head>
@@ -16,7 +29,7 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1 w-full py-6 text-center">
-        <div className="w-2/3 px-6 py-12 card">
+        <div className="flex flex-col items-center w-2/3 px-6 py-12 card">
           <h1 className="text-2xl font-bold">
             Welcome to{" "}
             <a className="text-gray-200" href="https://www.voices.help">
@@ -24,12 +37,16 @@ export default function Home() {
             </a>
           </h1>
 
-          <p className="mt-3 text-sm text-gray-200">
-            This list of rules helps me manage the voices when the voices bother
-            me
-            {ellipsis.map(() => (
-              <span>.</span>
-            ))}
+          <p className="w-5/6 mt-3 text-sm text-center text-gray-200">
+            
+              This list of rules helps me manage the voices when the voices
+              bother me<span className="inline-table min-[3ch] w-[3ch] max-[3ch] xl:mr-24">
+                <div className="flex justify-start">
+              {ellipsis.map((e) => (
+                <span>{e}</span>
+              ))}
+            </div>
+            </span>
           </p>
         </div>
 
@@ -57,13 +74,15 @@ export default function Home() {
               <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
                 3.){" "}
                 <span className="w-5/6 space-y-4 text-gray-200 md:w-2/3">
-                  <span>The voices can sometimes be helpful, like a driving instructor
-                  for your life.
+                  <span>
+                    The voices can sometimes be helpful, like a driving
+                    instructor for your life.
                   </span>
                   <span class="text-green-600 block text-xs">
-                    Always remember the first two rules and if questioning something they say ask
-                    a medical professional, a close friend, or even the bot on this page,
-                    information given to you is safe and useful.
+                    Always remember the first two rules and if questioning
+                    something they say ask a medical professional, a close
+                    friend, or even the bot on this page, information given to
+                    you is safe and useful.
                   </span>
                 </span>
               </h2>
@@ -95,10 +114,7 @@ export default function Home() {
                   Schizophrenia is whats called{" "}
                   <span className="text-green-600">heterogeneous</span> disease
                   which are caused by many different factors including your
-                  genes and environment. In some cases this does apply to an
-                  individual, this means in a different reality if your life was
-                  lived in a different way in a different reality then in that
-                  reality you might not have schizophrenia.
+                  genes and environment. <span className="flex mt-4 text-xs text-green-600">In other words, this means the you in a different reality where things in life went differently might not have schizophrenia.</span>
                 </span>
               </h2>
             </li>
