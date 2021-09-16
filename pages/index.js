@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const [ellipsis, setEllipsis] = useState(["."]);
@@ -35,14 +36,13 @@ export default function Home() {
           </h1>
 
           <p className="w-5/6 mt-3 text-sm text-center text-gray-200">
-            
-              This list of rules helps me manage the voices when they
-              bother me<span className="inline-table min-[3ch] w-[3ch] max-[3ch] md:mr12 lg:mr-16 xl:mr-24">
-                <div className="flex justify-start">
-              {ellipsis.map((e) => (
-                <span>{e}</span>
-              ))}
-            </div>
+            This list of rules helps me manage the voices when they bother me
+            <span className="inline-table min-[3ch] w-[3ch] max-[3ch] md:mr12 lg:mr-16 xl:mr-24">
+              <div className="flex justify-start">
+                {ellipsis.map((e) => (
+                  <span>{e}</span>
+                ))}
+              </div>
             </span>
           </p>
         </div>
@@ -108,9 +108,15 @@ export default function Home() {
               <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
                 6.){" "}
                 <span className="w-5/6 text-gray-200 md:w-2/3">
-                  Schizophrenia is whats called a <span className="text-green-600">heterogeneous</span> disease
+                  Schizophrenia is whats called a{" "}
+                  <span className="text-green-600">heterogeneous</span> disease
                   which are caused by many different factors including your
-                  genes and environment. <span className="flex mt-4 text-xs text-green-600">In other words, this means the you in a different reality where things in your life went differently could not have schizophrenia.</span>
+                  genes and environment.{" "}
+                  <span className="flex mt-4 text-xs text-green-600">
+                    In other words, this means the you in a different reality
+                    where things in your life went differently could not have
+                    schizophrenia.
+                  </span>
                 </span>
               </h2>
             </li>
@@ -191,7 +197,7 @@ export default function Home() {
         >
           <span className="mr-4 font-bold">Built by</span>
           <span className="flex items-center p-0.5 bg-green-600 rounded-full">
-            <img
+            <Image
               src="/unenunciate.jpeg"
               alt="Unenunciate Logo"
               className="w-6 h-6 rounded-full"
