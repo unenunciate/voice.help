@@ -1,8 +1,7 @@
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 
-export default function Home() {
+export default function Home({title}) {
   const [ellipsis, setEllipsis] = useState(["."]);
   const ellipsisRef = useRef([]);
 
@@ -22,7 +21,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 font-mono text-green-600">
       <Head>
-        <title>Voices.help</title>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -31,14 +30,15 @@ export default function Home() {
           <h1 className="text-2xl font-bold">
             Welcome to{" "}
             <a className="text-gray-200" href="https://www.voices.help">
-              Voices.help!
+              Voices.help
             </a>
+            !
           </h1>
 
-          <p className="w-5/6 mt-3 text-sm text-center text-gray-200">
+          <p className="w-5/6 pl-4 mt-3 text-sm text-center text-gray-200 md:pl-2 lg:pl-8 xl:pl-16">
             This list of rules helps me manage the voices when they bother me
-            <span className="inline-table min-[3ch] w-[3ch] max-[3ch] md:mr12 lg:mr-16 xl:mr-24">
-              <div className="flex justify-start">
+            <span className="inline-table min-[3ch] w-[3ch] max-[3ch] md:mr-12 lg:mr-16 xl:mr-24">
+              <div className="flex justify-start text-green-600">
                 {ellipsis.map((e) => (
                   <span>{e}</span>
                 ))}
@@ -197,7 +197,7 @@ export default function Home() {
         >
           <span className="mr-4 font-bold">Built by</span>
           <span className="flex items-center p-0.5 bg-green-600 rounded-full">
-            <Image
+            <img
               src="/unenunciate.jpeg"
               alt="Unenunciate Logo"
               className="w-6 h-6 rounded-full"
