@@ -1,13 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [ellipsis, setEllipsis] = useState(["."]);
   const ellipsisRef = useRef([]);
-  const [timer, setTimer] = useState(null);
 
-  const [resetTimer, setResetTimer] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
       if(ellipsisRef.current.length < 3){
@@ -20,7 +17,7 @@ export default function Home() {
       }
     },1000);
   return () => clearInterval(interval); 
-  },[resetTimer, timer, ellipsisRef.current]);
+  },[ellipsisRef.current]);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 font-mono text-green-600">
       <Head>
@@ -39,7 +36,7 @@ export default function Home() {
 
           <p className="w-5/6 mt-3 text-sm text-center text-gray-200">
             
-              This list of rules helps me manage the voices when the voices
+              This list of rules helps me manage the voices when they
               bother me<span className="inline-table min-[3ch] w-[3ch] max-[3ch] xl:mr-24">
                 <div className="flex justify-start">
               {ellipsis.map((e) => (
@@ -75,7 +72,7 @@ export default function Home() {
                 3.){" "}
                 <span className="w-5/6 space-y-4 text-gray-200 md:w-2/3">
                   <span>
-                    The voices can sometimes be helpful, like a driving
+                    They can sometimes be helpful, kind of like a driving
                     instructor for your life.
                   </span>
                   <span class="text-green-600 block text-xs">
@@ -111,9 +108,9 @@ export default function Home() {
               <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
                 6.){" "}
                 <span className="w-5/6 text-gray-200 md:w-2/3">
-                  Schizophrenia is whats called<span className="text-green-600">heterogeneous</span> disease
+                  Schizophrenia is whats called a <span className="text-green-600">heterogeneous</span> disease
                   which are caused by many different factors including your
-                  genes and environment. <span className="flex mt-4 text-xs text-green-600">In other words, this means the you in a different reality where things in life went differently might not have schizophrenia.</span>
+                  genes and environment. <span className="flex mt-4 text-xs text-green-600">In other words, this means the you in a different reality where things in your life went differently could not have schizophrenia.</span>
                 </span>
               </h2>
             </li>
@@ -187,23 +184,25 @@ export default function Home() {
       <footer className="flex items-center justify-center w-full h-24">
         <a
           className="flex items-center justify-center space-x-4"
-          href="https://www.unenuncaite.com"
+          href="https://www.unenunciate.com"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center px-12 py-2 text-gray-200 card"
         >
           <span className="mr-4 font-bold">Built by</span>
           <span className="flex items-center p-0.5 bg-green-600 rounded-full">
-            <Image
+            <img
               src="/unenunciate.jpeg"
               alt="Unenunciate Logo"
-              className="rounded-full"
-              width="24"
-              height="24"
+              className="w-6 h-6 rounded-full"
             />
           </span>
         </a>
       </footer>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  return { props: { title: "Voices.help", content: "..." } };
 }
