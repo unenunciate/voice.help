@@ -12,7 +12,7 @@
 /.next/
 /out/
 
-/build
+/build/
 
 # misc
 .DS_Store

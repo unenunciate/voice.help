@@ -37,7 +37,7 @@ export default function Home() {
           <p className="w-5/6 mt-3 text-sm text-center text-gray-200">
             
               This list of rules helps me manage the voices when they
-              bother me<span className="inline-table min-[3ch] w-[3ch] max-[3ch] xl:mr-24">
+              bother me<span className="inline-table min-[3ch] w-[3ch] max-[3ch] md:mr12 lg:mr-16 xl:mr-24">
                 <div className="flex justify-start">
               {ellipsis.map((e) => (
                 <span>{e}</span>
