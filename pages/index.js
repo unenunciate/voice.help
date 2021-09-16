@@ -171,7 +171,7 @@ export default function Home({title}) {
             </li>
 
             <p className="w-5/6 px-4 pt-12 text-xl font-bold text-center">
-              I am web developer that has treatment resistant schizophrenia and
+              I am a web developer who has treatment resistant schizophrenia and
               have been positive for auditory hallucinations, constantly based
               off of the sound level around me, for a long time. I just wanted
               to let you know that I built this website from scratch, and many
