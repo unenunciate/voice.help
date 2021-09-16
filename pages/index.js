@@ -1,82 +1,194 @@
-import Head from 'next/head'
+import Head from "next/head";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [ellipsis, setEllipsis] = useState([]);
+  const [timer, setTimer] = useState(null);
+  const [reset, setReset] = useState(0);
+  useEffect(() => {
+  },[reset]);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 font-mono text-green-600">
       <Head>
-        <title>Create Next App</title>
+        <title>Voices.help</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+      <main className="flex flex-col items-center justify-center flex-1 w-full py-6 text-center">
+        <div className="w-2/3 px-6 py-12 card">
+          <h1 className="text-2xl font-bold">
+            Welcome to{" "}
+            <a className="text-gray-200" href="https://www.voices.help">
+              Voices.help!
+            </a>
+          </h1>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
+          <p className="mt-3 text-sm text-gray-200">
+            This list of rules helps me manage the voices when the voices bother
+            me
+            {ellipsis.map(() => (
+              <span>.</span>
+            ))}
+          </p>
+        </div>
 
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
+        <div className="flex flex-col items-center justify-around w-5/6 max-w-3xl py-12 mt-6 card">
+          <ul className="flex flex-col items-center justify-center w-full space-y-6">
+            <li className="flex flex-col items-center justify-center w-full px-16">
+              <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
+                1.){" "}
+                <span className="w-5/6 text-gray-200 md:w-2/3">
+                  They dont know more than you.
+                </span>
+              </h2>
+            </li>
+
+            <li className="flex flex-col items-center justify-center w-full px-16">
+              <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
+                2.){" "}
+                <span className="w-5/6 text-gray-200 md:w-2/3">
+                  They dont know what other people are thinking.
+                </span>
+              </h2>
+            </li>
+
+            <li className="flex flex-col items-center justify-center w-full px-16">
+              <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
+                3.){" "}
+                <span className="w-5/6 space-y-4 text-gray-200 md:w-2/3">
+                  <span>The voices can sometimes be helpful, like a driving instructor
+                  for your life.
+                  </span>
+                  <span class="text-green-600 block text-xs">
+                    Always remember the first two rules and if questioning something they say ask
+                    a medical professional, a close friend, or even the bot on this page,
+                    information given to you is safe and useful.
+                  </span>
+                </span>
+              </h2>
+            </li>
+
+            <li className="flex flex-col items-center justify-center w-full px-16">
+              <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
+                4.){" "}
+                <span className="w-5/6 text-gray-200 md:w-2/3">
+                  They lie often. Almost everything negative they say is a lie.
+                </span>
+              </h2>
+            </li>
+
+            <li className="flex flex-col items-center justify-center w-full px-16">
+              <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
+                5.){" "}
+                <span className="w-5/6 text-gray-200 md:w-2/3">
+                  The wrong drugs will make them worse and the right drugs will
+                  make them better.
+                </span>
+              </h2>
+            </li>
+
+            <li className="flex flex-col items-center justify-center w-full px-16">
+              <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
+                6.){" "}
+                <span className="w-5/6 text-gray-200 md:w-2/3">
+                  Schizophrenia is whats called{" "}
+                  <span className="text-green-600">heterogeneous</span> disease
+                  which are caused by many different factors including your
+                  genes and environment. In some cases this does apply to an
+                  individual, this means in a different reality if your life was
+                  lived in a different way in a different reality then in that
+                  reality you might not have schizophrenia.
+                </span>
+              </h2>
+            </li>
+
+            <li className="flex flex-col items-center justify-center w-full px-16">
+              <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
+                7.){" "}
+                <span className="w-5/6 text-gray-200 md:w-2/3">
+                  Ask your doctor about{" "}
+                  <span className="text-green-600">"Clozapine"</span> when the
+                  right drugs don't work.
+                </span>
+              </h2>
+            </li>
+
+            <li className="flex flex-col items-center justify-center w-full px-16">
+              <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
+                8.){" "}
+                <span className="w-5/6 text-gray-200 md:w-2/3">
+                  <a
+                    href="https://www.mayoclinic.org/tests-procedures/electroconvulsive-therapy/about/pac-20393894"
+                    className="text-green-600"
+                  >
+                    Electroconvulsive Therapy (ECT)
+                  </a>{" "}
+                  has been modernized, is now preformed under anesthesia, and is
+                  a accepted treatment option for those with treatment resistant
+                  schizophrenia when the right drugs don't work.
+                </span>
+              </h2>
+            </li>
+
+            <li className="flex flex-col items-center justify-center w-full px-16">
+              <h2 className="flex justify-between w-full text-sm font-bold md:text-lg">
+                9.){" "}
+                <span className="w-5/6 space-y-4 md:w-2/3">
+                  <div className="text-gray-200">
+                    Hopefully, one day soon{" "}
+                    <a href="https://neuralink.com/" className="text-green-600">
+                      Neuralink
+                    </a>{" "}
+                    will be the solution to schizophrenia.
+                  </div>
+
+                  <div className="text-sm">
+                    Feel free to contact me Musk if you want someone's brain to
+                    pick on schizophrenia; I might even let you stick your thing
+                    in me, 😉.
+                  </div>
+                </span>
+              </h2>
+            </li>
+
+            <p className="w-5/6 px-4 pt-12 text-xl font-bold text-center">
+              I am web developer that has treatment resistant schizophrenia and
+              have been positive for auditory hallucinations, constantly based
+              off of the sound level around me, for a long time. I just wanted
+              to let you know that I built this website from scratch, and many
+              other websites,{" "}
+              <span className="text-gray-200">
+                so, <span className="text-green-600">please</span>, don't give
+                up on life, or believe you can't achieve anything, because you
+                have schizophrenia
+              </span>
+              .
             </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          </ul>
         </div>
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
+      <footer className="flex items-center justify-center w-full h-24">
         <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className="flex items-center justify-center space-x-4"
+          href="https://www.unenuncaite.com"
           target="_blank"
           rel="noopener noreferrer"
+          className="flex items-center px-12 py-2 text-gray-200 card"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
+          <span className="mr-4 font-bold">Built by</span>
+          <span className="flex items-center p-0.5 bg-green-600 rounded-full">
+            <Image
+              src="/unenunciate.jpeg"
+              alt="Unenunciate Logo"
+              className="rounded-full"
+              width="24"
+              height="24"
+            />
+          </span>
         </a>
       </footer>
     </div>
-  )
+  );
 }
