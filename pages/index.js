@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 
+export const config = { amp: true };
+
 export default function Home({title}) {
   const [ellipsis, setEllipsis] = useState(["."]);
   const ellipsisRef = useRef([]);
@@ -24,11 +26,23 @@ export default function Home({title}) {
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
 
-        <meta name="description" content="A resource site for people with schizophrenia with accessible materials that available and concise."></meta>
-        <meta property="og:title" content="Voices.help | Rules to Remember"></meta>
-        <meta property="og:description" content="A list of rules to help suffers manage their voices."></meta>
-        <meta property="og:url" content="https://voices.help/"></meta>
-        <meta property="og:type" content="website"></meta>
+        <meta
+          name="description"
+          content="A resource site for people with schizophrenia with accessible materials that available and concise."
+        />
+        <meta
+          property="og:title"
+          content="Voices.help | Rules to Remember"
+        />
+        <meta
+          property="og:description"
+          content="A list of rules to help suffers manage their voices."
+        />
+        <meta property="og:url" content="https://voices.help/"/>
+        <meta property="og:type" content="website"/>
+        <meta name="rating" content="adult" />
+        <meta name="google" content="nositelinkssearchbox" />
+        <meta name="robots" content="max-image-preview:standard"/>
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1 w-full py-6 text-center">
@@ -84,8 +98,8 @@ export default function Home({title}) {
                   <span class="text-green-600 block text-xs">
                     Always remember the first two rules and if questioning
                     something they say ask a medical professional, a close
-                    friend, or even the bot on this page if the information given to
-                    you is safe and useful.
+                    friend, or even the bot on this page if the information
+                    given to you is safe and useful.
                   </span>
                 </span>
               </h2>
