@@ -12,15 +12,16 @@ function App({ Component, pageProps }) {
       includedDomains: ["voices.help"],
     });
 
-    function onRouteChangeComplete() {
+    function beforeHistoryChange() {
       Fathom.trackPageview();
+      console.log('Fathom pageview tracked');
     }
     // Record a pageview when route changes
-    router.events.on('routeChangeComplete', onRouteChangeComplete);
+    router.events.on("beforeHistoryChange", beforeHistoryChange);
 
     // Unassign event listener
     return () => {
-      router.events.off('routeChangeComplete', onRouteChangeComplete);
+      router.events.off("beforeHistoryChange", beforeHistoryChange);
     };
   }, []);
 
