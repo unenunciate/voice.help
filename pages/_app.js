@@ -9,7 +9,7 @@ function App({ Component, pageProps }) {
 
   useEffect(() => {
     Fathom.load("ZUIMVZKC", {
-      includedDomains: ["voices.help"],
+      includedDomains: ["voices.help", "www.voices.help"],
     });
 
     function beforeHistoryChange() {
