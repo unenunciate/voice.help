@@ -1,9 +1,11 @@
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
+import { useAmp } from "next/amp";
 
-export const config = { amp: true };
+export const config = { amp: "hybrid" };
 
 export default function Home({title}) {
+  const {isAmp } = useAmp();
   const [ellipsis, setEllipsis] = useState(["."]);
   const ellipsisRef = useRef([]);
 
@@ -30,19 +32,16 @@ export default function Home({title}) {
           name="description"
           content="A resource site for people with schizophrenia with accessible materials that available and concise."
         />
-        <meta
-          property="og:title"
-          content="Voices.help | Rules to Remember"
-        />
+        <meta property="og:title" content="Voices.help | Rules to Remember" />
         <meta
           property="og:description"
           content="A list of rules to help suffers manage their voices."
         />
-        <meta property="og:url" content="https://voices.help/"/>
-        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://voices.help/" />
+        <meta property="og:type" content="website" />
         <meta name="rating" content="adult" />
         <meta name="google" content="nositelinkssearchbox" />
-        <meta name="robots" content="max-image-preview:standard"/>
+        <meta name="robots" content="max-image-preview:standard" />
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1 w-full py-6 text-center">
@@ -217,11 +216,20 @@ export default function Home({title}) {
         >
           <span className="mr-4 font-bold">Built by</span>
           <span className="flex items-center p-0.5 bg-green-600 rounded-full">
-            <img
-              src="/unenunciate.jpeg"
-              alt="Unenunciate Logo"
-              className="w-6 h-6 rounded-full"
-            />
+            {isAmp ? (
+              <amp-img
+                src="/unenunciate.jpeg"
+                alt="Unenunciate Logo"
+                className="w-6 h-6 rounded-full"
+                layout="responsive"
+              />
+            ) : (
+              <img
+                src="/unenunciate.jpeg"
+                alt="Unenunciate Logo"
+                className="w-6 h-6 rounded-full"
+              />
+            )}
           </span>
         </a>
       </footer>
