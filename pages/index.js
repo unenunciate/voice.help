@@ -23,6 +23,12 @@ export default function Home({title}) {
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
+
+        <meta name="description" content="A resource site for people with schizophrenia with accessible materials that available and concise."></meta>
+        <meta property="og:title" content="Voices.help | Rules to Remember"></meta>
+        <meta property="og:description" content="A list of rules to help suffers manage their voices."></meta>
+        <meta property="og:url" content="https://voices.help/"></meta>
+        <meta property="og:type" content="website"></meta>
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1 w-full py-6 text-center">
