@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { useAmp } from "next/amp";
+import Ticker from "react-ticker";
 
 export const config = { amp: "hybrid" };
 
@@ -23,7 +24,7 @@ export default function Home({title}) {
   return () => clearInterval(interval); 
   },[ellipsisRef.current]);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 font-mono text-green-600">
+    <amp className="flex flex-col items-center justify-center min-h-screen py-2 font-mono text-green-600">
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -31,20 +32,21 @@ export default function Home({title}) {
         <meta
           name="description"
           content="A resource site for people with schizophrenia with accessible materials that available and concise."
-        />
-        <meta property="og:title" content="Voices.help | Rules to Remember" />
+        ></meta>
+        <meta property="og:title" content="Voices.help | Rules to Remember" ></meta>
         <meta
           property="og:description"
           content="A list of rules to help suffers manage their voices."
-        />
-        <meta property="og:url" content="https://voices.help/" />
-        <meta property="og:type" content="website" />
-        <meta name="rating" content="adult" />
-        <meta name="google" content="nositelinkssearchbox" />
-        <meta name="robots" content="max-image-preview:standard" />
+        ></meta>
+        <meta property="og:url" content="https://voices.help/" ></meta>
+        <meta property="og:type" content="website" ></meta>
+        <meta name="rating" content="adult" ></meta>
+        <meta name="google" content="nositelinkssearchbox" ></meta>
+        <meta name="robots" content="max-image-preview:standard" ></meta>
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1 w-full py-6 text-center">
+        <Ticker/>
         <div className="flex flex-col items-center w-2/3 px-6 py-12 card">
           <h1 className="text-2xl font-bold">
             Welcome to{" "}
@@ -215,25 +217,18 @@ export default function Home({title}) {
           className="flex items-center px-12 py-2 text-gray-200 card"
         >
           <span className="mr-4 font-bold">Built by</span>
+          
           <span className="flex items-center p-0.5 bg-green-600 rounded-full">
-            {isAmp ? (
-              <amp-img
-                src="/unenunciate.jpeg"
-                alt="Unenunciate Logo"
-                className="w-6 h-6 rounded-full"
-                layout="responsive"
-              />
-            ) : (
               <img
                 src="/unenunciate.jpeg"
                 alt="Unenunciate Logo"
                 className="w-6 h-6 rounded-full"
               />
-            )}
           </span>
+          
         </a>
       </footer>
-    </div>
+    </amp>
   );
 }
 
